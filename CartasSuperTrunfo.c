@@ -12,23 +12,28 @@ int main() {
         
     //AS linhas abaixo determinam as variáveis a serem utilizadas para a Carta 1 e seus tipos.
 
-        char estado;
+        char estado[5];
         char codigo[5];
-        char cidade[30];
+        char cidade[5];
         int populacao;
         float area;
         float pib;
         int pturisticos;
+        float densidade;
+        float pibpercap;
+
 
     //As linhas abaixo determinam as variáveis a serem utilizadas para a Carta 2 e seus tipos.
 
-        char estado2;
+        char estado2 [5];
         char codigo2[5];
-        char cidade2[30];
+        char cidade2[5];
         int populacao2;
         float area2;
         float pib2;
         int pturisticos2;
+        float densidade2;
+        float pibpercap2;
 
     // Cadastro das Cartas:
     // Sugestão: Utilize a função scanf para capturar as entradas do usuário para cada atributo.
@@ -39,13 +44,13 @@ int main() {
     printf("INSIRA OS DADOS PARA A CARTA 1 \n");    
 
         printf ("Digite o Estado: ");
-            scanf ("%c", &estado);
+            scanf ("%s", &estado);
         printf ("Digite o Código: ");
             scanf ("%s", &codigo);
         printf ("Digite a cidade: ");
             scanf ("%s", &cidade);  
         printf ("Digite a População: ");
-            scanf ("%i", &populacao);
+            scanf ("%d", &populacao);
         printf ("Digite a Área: ");
             scanf ("%f", &area );
         printf ("Digite o PIB: ");
@@ -64,13 +69,15 @@ int main() {
         printf ("Digite a cidade: ");
             scanf ("%s", &cidade2);  
         printf ("Digite a População: ");
-            scanf ("%i", &populacao2);
+            scanf ("%d", &populacao2);
         printf ("Digite a Área: ");
             scanf ("%f", &area2 );
         printf ("Digite o PIB: ");
             scanf ("%f", &pib2 );    
         printf ("Informe Número de Pontos Turístico: ");
-            scanf ("%i", &pturisticos2);
+            scanf ("%d", &pturisticos2);
+
+
 
     // Exibição dos Dados das Cartas:
     // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
@@ -84,9 +91,16 @@ int main() {
         printf ("Código:  %s\n", codigo);
         printf ("Nome da Cidade:  %s\n", cidade);
         printf ("População:  %i\n", populacao);
-        printf ("Área:  %f Km²\n", area);
-        printf ("PIB:  %f Bilhões de Reais\n", pib);
+        printf ("Área:  %.2f Km²\n", area);
+        printf ("PIB:  %.2f Bilhões de Reais\n", pib);
         printf ("Número de Pontos Turísticos:  %i\n", pturisticos);
+        
+        pib = pib*1000000000; //converte o PIB em bilhões
+        densidade=populacao/area; //Calcula a densidade populacional
+        pibpercap=pib/populacao; //Calcula o Pib per capita
+        
+        printf ("Densidade Populacional:   %.2f hab/km2 \n", densidade);
+        printf ("PIB Per Capita:  %.2f Reais \n", pibpercap);
     
     //As linhas abaixo definem o código destinado a apresentação da Carta 2    
     printf("\n\n CARTA2\n");
@@ -95,9 +109,17 @@ int main() {
         printf ("Código:  %s\n", codigo2);
         printf ("Nome da Cidade:  %s\n", cidade2);
         printf ("População:  %i\n", populacao2);
-        printf ("Área:  %f Km²\n", area2);
-        printf ("PIB:  %f Bilhões de Reais\n", pib2);
+        printf ("Área:  %.2f Km²\n", area2);
+        printf ("PIB:  %.2f Bilhões de Reais\n", pib2);
         printf ("Número de Pontos Turísticos:  %i\n", pturisticos2);
+
+        pib2 = pib2*1000000000; //converte o PIB em bilhões
+        densidade2=populacao2/area2; //Calcula a densidade populacional
+        pibpercap2=pib2/populacao2; //Calcula o Pib per capita
+        
+
+        printf ("Densidade Populacional:   %.2f hab/km2 \n", densidade2);
+        printf ("PIB Per Capita:  %.2f Reais \n", pibpercap2);
     
     return 0;
 }
